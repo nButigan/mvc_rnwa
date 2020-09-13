@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RNWA_MVC.Models.Zanrovi>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h4>Popis žanrova</h4>
+<hr />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nazivZanra)
+            </th>
+            <th>
+                <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i>Žanr</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazivZanra)
+                </td>
+                <td>
+                    <a asp-action="AddOrEdit" asp-route-id="@item.id">Uredi</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('Jeste li sigurni da želite obrisati ovaj zapis ?')">Obriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

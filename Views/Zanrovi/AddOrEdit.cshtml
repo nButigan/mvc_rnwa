@@ -1,0 +1,34 @@
+﻿@model RNWA_MVC.Models.Zanrovi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Žanr</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="nazivZanra" class="control-label"></label>
+                <input asp-for="nazivZanra" class="form-control" />
+                <span asp-validation-for="nazivZanra" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="submit" value="Spremi" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-4">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table "> Natrag na listu</i></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

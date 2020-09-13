@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string CurrentName = User.Identity.Name;
+    switch (CurrentName)
+    {
+        case "User":
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+        default:
+            Layout = "~/Views/Shared/_AdminLayout.cshtml";
+            break;
+
+    }
+
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><strong>Home Page </strong></h2><br /><br />
+            Hello @User.Identity.Name
+            <a asp-controller="account" asp-action="login">
+                Logout
+            </a>
+            <br />
+            <br />
+            <h4>Welcome to Asp.Net Core Authentication and Authorization Demo!!</h4>
+        </div>
+    </div>
+</div>

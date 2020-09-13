@@ -1,0 +1,65 @@
+﻿@model RNWA_MVC.Models.Filmovi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="AddOrEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="nazivFilma" class="control-label"></label>
+                <input asp-for="nazivFilma" class="form-control" />
+                <span asp-validation-for="nazivFilma" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="opis" class="control-label"></label>
+                    <input asp-for="opis" class="form-control" />
+                    <span asp-validation-for="opis" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="trajanje" class="control-label"></label>
+                    <input asp-for="trajanje" class="form-control" />
+                    <span asp-validation-for="trajanje" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="redatelji" class="control-label"></label>
+                <input asp-for="redatelji" class="form-control" />
+                <span asp-validation-for="redatelji" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="glumci" class="control-label"></label>
+                    <input asp-for="glumci" class="form-control" />
+                    <span asp-validation-for="glumci" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="godinaProdukcije" class="control-label"></label>
+                    <input asp-for="godinaProdukcije" class="form-control" />
+                    <span asp-validation-for="godinaProdukcije" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Spremi" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table "> Natrag na listu</i></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
